@@ -1,32 +1,36 @@
-// Menangkap elemen-elemen yang dibutuhkan
-const intro1 = document.querySelector('.intro1');
-const intro2 = document.querySelector('.intro2');
-const btnNext = document.querySelectorAll('.btn-next');
+const introSections = document.querySelectorAll('.intro-section');
 const circles = document.querySelectorAll('.circle');
 
-// Fungsi untuk mengatur animasi muncul dari luar ke dalam pada lingkaran
-function showCircles() {
-  gsap.set(circles, { scale: 0, opacity: 0, transformOrigin: 'center' });
+let currentSection = 0;
 
-  circles.forEach((circle, index) => {
-    gsap.to(circle, {
-      scale: 1,
-      opacity: 1,
-      duration: 0.2,
-      delay: index * 0.3,
-      ease: 'back.out(0.3)',
-    });
-  });
+function showNextSection() {
+  if (currentSection < introSections.length - 1) {
+    introSections[currentSection].style.display = 'none';
+    currentSection++;
+
+    const tl = gsap.timeline();
+    tl.to(circles, { scale: 1, duration: 0.5, ease: 'back.out(1.2)' });
+    tl.to(introSections[currentSection], { display: 'block', duration: 0 });
+
+    if (currentSection % 2 === 0) {
+      // If even section, animate circles from the left
+      tl.fromTo(circles, { x: '-100%' }, { x: '0%', duration: 1, ease: 'power2.out' });
+    } else {
+      // If odd section, animate circles from the right
+      tl.fromTo(circles, { x: '100%' }, { x: '0%', duration: 1, ease: 'power2.out' });
+    }
+
+    tl.fromTo('.content', { opacity: 0.5, y: '0' }, { opacity: 1, y: '0', duration: 0.5, ease: 'power2.out' });
+  } else {
+    // Handle finish action
+  }
 }
 
-// Fungsi untuk mengubah slide dari intro1 ke intro2
-function goToNextSlide() {
-  intro1.style.display = 'none';
-  intro2.style.display = 'block';
-  showCircles();
-}
+const intro1Animation = gsap.timeline({ delay: 0.5 });
+intro1Animation.fromTo('.intro1 .top-right', { x: '100%', y: '-10%' }, { x: '-10%', y: '-10%', duration: 1, ease: 'power2.out' });
+intro1Animation.fromTo('.intro1 .middle-left', { x: '-12%', y: '40%' }, { x: '-12%', y: '0%', duration: 1, ease: 'power2.out' }, '<');
 
-// Menambahkan event listener pada tombol "Next"
-btnNext.forEach(btn => {
-  btn.addEventListener('click', goToNextSlide);
+
+document.querySelectorAll('.btn-next').forEach((button) => {
+  button.addEventListener('click', showNextSection);
 });
