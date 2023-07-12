@@ -84,4 +84,3 @@ gsap.fromTo(
     repeat: 0,
     duration: 1.5,
   });
-  
