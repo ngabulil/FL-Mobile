@@ -13,16 +13,13 @@ function showNextSection() {
     tl.to(introSections[currentSection], { display: 'block', duration: 0 });
 
     if (currentSection % 2 === 0) {
-      // If even section, animate circles from the left
       tl.fromTo(circles, { x: '-100%' }, { x: '0%', duration: 1, ease: 'power2.out' });
     } else {
-      // If odd section, animate circles from the right
       tl.fromTo(circles, { x: '100%' }, { x: '0%', duration: 1, ease: 'power2.out' });
     }
 
     tl.fromTo('.content', { opacity: 0.5, y: '0' }, { opacity: 1, y: '0', duration: 0.5, ease: 'power2.out' });
   } else {
-    // Handle finish action
   }
 }
 
