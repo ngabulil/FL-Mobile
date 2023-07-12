@@ -68,6 +68,8 @@ body {
         display: none;
         font-size: 40px;
         color: white;
+        font-weight: 500;
+
       }
       
       .form-login {
@@ -82,21 +84,29 @@ body {
       }
       
       .form-login input {
+        padding: 5px 10px;
+        color: #eaeaea;
         width: 292px;
         border-radius: 64px;
         height: 47px;
         border: none;
         background-color: var(--bg-secondary-color);
       }
+
+      .inputPw {
+        margin-bottom: 30px;
+      }
       
-      .btn-login {
-        margin-top: 20px;
-        width: 120px;
-        height: 39px;
+       .btn-login {
+        text-decoration: none;
+        padding: 18px 40px;
+        /* width: 120px; */
+        /* height: 39px; */
         border-radius: 64px;
         background-color: var(--primary-color);
         text-transform: uppercase;
         font-weight: bold;
+        color: var(--background-color);
       }
 
       .form-login form div {
@@ -104,5 +114,8 @@ body {
         flex-direction: column;
         margin-bottom: 24px;
       }
+
+      /* Intro Page */
+
       
 }

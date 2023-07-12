@@ -51,7 +51,7 @@ gsap.fromTo(
                               opacity: 1,
                               duration: 0.3,
                               delay: 0.3,
-                              y: "-25%",
+                              y: "-45%",
                               onComplete: function(){
                             const collection = document.getElementsByClassName("title-login");
                             collection[0].style.display = "block";
