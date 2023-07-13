@@ -31,3 +31,7 @@ intro1Animation.fromTo('.intro1 .middle-left', { x: '-12%', y: '40%' }, { x: '-1
 document.querySelectorAll('.btn-next').forEach((button) => {
   button.addEventListener('click', showNextSection);
 });
+
+function redirectToCalendar() {
+  window.location.href = '/page/calender.html';
+}
