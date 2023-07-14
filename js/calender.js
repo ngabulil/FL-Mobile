@@ -99,7 +99,7 @@ btnTask.addEventListener('click', function() {
 });
 
 btnEvent.addEventListener('click', function() {
-  window.location.href = 'event-page.html'; // Ganti "event-page.html" dengan URL halaman acara Anda
+  window.location.href = '../page/event.html'; // Ganti "event-page.html" dengan URL halaman acara Anda
   popupContainer.style.display = 'none';
 });
 

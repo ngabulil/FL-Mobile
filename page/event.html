@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="stylesheet" href="../css/event.css" />
+  <title>Elisi</title>
+</head>
+
+<body>
+  <div class="page-wrapper">
+    <div class="btn-top">
+      <button>
+        <img src="../assets/arrowleft.png" alt="" />
+      </button>
+      <button>
+        <img src="../assets/Trash.png" alt="" />
+      </button>
+    </div>
+    <div class="search-bar">
+      <input id="event-name-input" type="text" placeholder="Event name ..." />
+    </div>
+    <div class="color-ellipse">
+      <div class="ellipse-1" style="background-color: #f09999" onclick="sendColor(this)"></div>
+      <div class="ellipse-2" style="background-color: #ffdd9a" onclick="sendColor(this)"></div>
+      <div class="ellipse-3" style="background-color: #f0e799" onclick="sendColor(this)"></div>
+      <div class="ellipse-4" style="background-color: #aef099" onclick="sendColor(this)"></div>
+      <div class="ellipse-5" style="background-color: #99e6f0" onclick="sendColor(this)"></div>
+      <div class="ellipse-6" style="background-color: #a4a6d0" onclick="sendColor(this)"></div>
+      <div class="ellipse-7" style="background-color: #e4aef7" onclick="sendColor(this)"></div>
+      <div class="ellipse-8" style="background-color: #b8a083" onclick="sendColor(this)"></div>
+    </div>
+    <!-- Detail -->
+    <div class="event">
+      <div class="detail">
+        <img class="icon-event" src="../assets/Icon detail.png" alt="" />
+        <input class="title-event" placeholder="Add Details..."></input>
+      </div>
+      <!-- <div class="event-detail">
+          <div class="detail">
+            <img class="icon-event" src="../assets/Icon subtask.png" alt="" />
+            <p class="title-event">Subtask</p>
+          </div>
+          <button class="btn-add">+</button>
+        </div> -->
+      <div class="event-detail">
+        <div class="detail">
+          <img class="icon-event" src="../assets/Icon reminder.png" alt="" />
+          <p class="title-event">Reminder</p>
+        </div>
+        <button id="reminder-btn" class="btn-add">+</button>
+        <div id="reminder-modal" class="modal">
+          <div id="time-input" class="time-input">
+            <div class="time-content">
+              <input id="hour-input" type="number" min="0" max="23" step="1" value="00">
+              <span>:</span>
+              <input id="minute-input" type="number" min="0" max="59" step="1" value="00">
+            </div>
+          </div>
+          <div class="btn-time"><button>Submit</button></div>
+          <!-- <div class="modal-content">
+            <div class="modal-header">
+              <h2>Select Time</h2>
+              <span class="close">&times;</span>
+            </div>
+            <div class="modal-body">
+              <input type="time" id="selected-time" />
+            </div>
+            <div class="modal-footer">
+              <button id="set-reminder-btn" class="btn-reminder">
+                Set Reminder
+              </button>
+            </div>
+          </div> -->
+        </div>
+      </div>
+      <div class="event-detail">
+        <div class="detail">
+          <img class="icon-event" src="../assets/Icon repeat.png" alt="" />
+          <p class="title-event">Repeat Task</p>
+        </div>
+        <button class="btn-repeat">No Repeat</button>
+      </div>
+      <div class="event-detail">
+        <div class="detail">
+          <img class="icon-event" src="../assets/Icon attachment.png" alt="" />
+          <p class="title-event">Attachment</p>
+        </div>
+        <button class="btn-add">+</button>
+      </div>
+      <div class="event-detail">
+        <div class="detail">
+          <img class="icon-event" src="../assets/Icon sticker.png" alt="" />
+          <p class="title-event">Sticker</p>
+        </div>
+        <button class="btn-add">+</button>
+      </div>
+    </div>
+    <button id="save-btn" class="btn-save">Save</button>
+  </div>
+  <script src="../js/event.js"></script>
+</body>
+
+</html>
