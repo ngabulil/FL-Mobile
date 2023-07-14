@@ -25,17 +25,6 @@
           <p>Workspace</p>
           <img src="../assets/arrow.png" alt="" />
         </button>
-        <!-- <div class="dropdownTop">
-          <div class="dropTopCont">
-            <button>Workspace</button>
-            <button>Study</button>
-            <button>Personal</button>
-            <div class="addNew">
-              <button>Add New</button>
-              <p>+</p>
-            </div>
-          </div>
-        </div> -->
         <div class="dropdown-content">
           <div class="dropTopCont">
             <button class="workspace" href="#">Workspace</button>
@@ -44,37 +33,45 @@
             <button class="new" href="#">Add New Task</button>
           </div>
         </div>
-      </nav>
-      <!-- content calender -->
-      <div class="content">
-        <div class="calendar">
-          <div class="btn-info">
-            <button class="btn-all">All Task</button>
-            <button class="btn-calender">Calender</button>
-          </div>
-          <div class="calendar-header">
-            <button id="prev-btn">&lt;</button>
-            <div id="month-year"></div>
-            <button id="next-btn">&gt;</button>
-          </div>
-          <div class="calendar-grid">
-            <div class="weekdays">
-              <div class="weekday">Sun</div>
-              <div class="weekday">Mon</div>
-              <div class="weekday">Tue</div>
-              <div class="weekday">Wed</div>
-              <div class="weekday">Thu</div>
-              <div class="weekday">Fri</div>
-              <div class="weekday">Sat</div>
-            </div>
-            <div class="days"></div>
-          </div>
+    </nav>
+    <!-- content calender -->
+    <div class="content">
+      <div class="calendar">
+        <div class="btn-info">
+          <button class="btn-all">All Task</button>
+          <button class="btn-calender">Calender</button>
         </div>
-        <div class="no-task">
-          <p>No task for <br />today</p>
+        <div class="calendar-header">
+          <button id="prev-btn">&lt;</button>
+          <div id="month-year"></div>
+          <button id="next-btn">&gt;</button>
         </div>
-        <button class="btn-add">+</button>
+        <div class="calendar-grid">
+          <div class="weekdays">
+            <div class="weekday">Sun</div>
+            <div class="weekday">Mon</div>
+            <div class="weekday">Tue</div>
+            <div class="weekday">Wed</div>
+            <div class="weekday">Thu</div>
+            <div class="weekday">Fri</div>
+            <div class="weekday">Sat</div>
+          </div>
+          <div class="days"></div>
+        </div>
       </div>
+      <div class="no-task" id="no-task">
+        <p>No task for <br />today</p>
+      </div>
+      <div class="task-list" id="task-list"></div>      
+      <button class="btn-add">+</button>
+      <div class="popup-container">
+        <div class="popup">
+          <button class="btn-task">Task</button>
+          <button class="btn-event">Event</button>
+        </div>
+      </div>
+
+    </div>
     </nav>
     <nav class="bottom-navbar">
       <a href="#" class="navbar-item active">
@@ -100,7 +97,7 @@
     // Menginisialisasi Flatpickr pada elemen input tanggal
     flatpickr("#datepicker", {
       dateFormat: "d-m-Y", // Format tanggal yang diinginkan
-      onClose: function(selectedDates, dateStr, instance) {
+      onClose: function (selectedDates, dateStr, instance) {
         // Logika yang akan dijalankan saat pemilihan tanggal ditutup
         console.log("Tanggal yang dipilih:", dateStr);
       }

@@ -81,3 +81,60 @@ generateCalendar(currentDate.getMonth(), currentDate.getFullYear());
 // Add event listeners to the previous and next buttons
 prevButton.addEventListener('click', prevMonth);
 nextButton.addEventListener('click', nextMonth);
+
+// BTN ADD
+
+const btnAdd = document.querySelector('.btn-add');
+const popupContainer = document.querySelector('.popup-container');
+const btnTask = document.querySelector('.btn-task');
+const btnEvent = document.querySelector('.btn-event');
+
+btnAdd.addEventListener('click', function() {
+  popupContainer.style.display = 'flex';
+});
+
+btnTask.addEventListener('click', function() {
+  window.location.href = '../page/task.html'; // Ganti "task-page.html" dengan URL halaman tugas Anda
+  popupContainer.style.display = 'none';
+});
+
+btnEvent.addEventListener('click', function() {
+  window.location.href = 'event-page.html'; // Ganti "event-page.html" dengan URL halaman acara Anda
+  popupContainer.style.display = 'none';
+});
+
+popupContainer.addEventListener('click', function(event) {
+  if (event.target === popupContainer) {
+    popupContainer.style.display = 'none';
+  }
+});
+
+// Manggil Task
+
+document.addEventListener('DOMContentLoaded', function() {
+  const taskList = document.getElementById('task-list');
+  const noTask = document.getElementById('no-task');
+
+  // Mendapatkan data task dari local storage
+  const taskData = localStorage.getItem('task');
+  if (taskData) {
+    const task = JSON.parse(taskData);
+    const taskName = task.name;
+    const reminder = task.reminder;
+
+    // Menampilkan task name dan reminder jika tersedia
+    const taskElement = document.createElement('div');
+    taskElement.innerHTML = `<div class="info-task">
+    <p>${taskName}</p>
+    <div/>`;
+    taskList.appendChild(taskElement);
+
+    // Mengubah tampilan elemen no-task menjadi tersembunyi
+    noTask.style.display = 'none';
+  } else {
+    // Menampilkan pesan "No task for today" jika tidak ada task tersimpan
+    noTask.style.display = 'block';
+  }
+});
+
+

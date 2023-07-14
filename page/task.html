@@ -17,7 +17,7 @@
         </button>
       </div>
       <div class="search-bar">
-        <input type="text" placeholder="Task name ..." />
+        <input id="task-name-input" type="text" placeholder="Task name ..." />
       </div>
       <div class="color-ellipse">
         <div class="ellipse-1" style="background-color: #f09999"></div>
@@ -47,7 +47,23 @@
             <img class="icon-task" src="../assets/Icon reminder.png" alt="" />
             <p class="title-task">Reminder</p>
           </div>
-          <button class="btn-add">+</button>
+          <button id="reminder-btn" class="btn-add">+</button>
+          <div id="reminder-modal" class="modal">
+            <div class="modal-content">
+              <div class="modal-header">
+                <h2>Select Time</h2>
+                <span class="close">&times;</span>
+              </div>
+              <div class="modal-body">
+                <input type="time" id="selected-time" />
+              </div>
+              <div class="modal-footer">
+                <button id="set-reminder-btn" class="btn-reminder">
+                  Set Reminder
+                </button>
+              </div>
+            </div>
+          </div>
         </div>
         <div class="task-detail">
           <div class="detail">
@@ -71,7 +87,8 @@
           <button class="btn-add">+</button>
         </div>
       </div>
-      <button class="btn-save">Save</button>
+      <button id="save-btn" class="btn-save">Save</button>
     </div>
+    <script src="../js//task.js"></script>
   </body>
 </html>
