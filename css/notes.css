@@ -1,0 +1,217 @@
+@import url('https://fonts.googleapis.com/css2?family=Josefin+Sans:wght@400;500;600;700&display=swap');
+
+* {
+    scroll-behavior: smooth;
+    box-sizing: border-box;
+    padding: 0;
+    margin: 0;
+    font-family: 'Josefin Sans', sans-serif;
+}
+
+:root {
+    --primary-color: #93CB82;
+    --background-color: #1B272F;
+    --secondary-color: #C4A4D0;
+    --bg-secondary-color: #304552;
+}
+
+body {
+    background-color: var(--background-color);
+    min-height: 100vh;
+}
+
+.container-notes {
+    background-color: #304552;
+    height: 100vh;
+    border-top-right-radius: 75px;
+    border-top-left-radius: 75px;
+}
+
+/* search */
+.search-container {
+    padding: 25px;
+}
+.search-container input {
+    padding-left: 40px;
+    width: 100%;
+    height: 40px;
+    margin: 0 auto;
+    border-radius: 50px;
+    border: none !important;
+    font-size: 18px;
+    font-weight: 600;
+    color: rgba(172, 172, 172, 1);
+}
+.search-container i {
+  position: absolute;
+  padding: 6px 10px;
+  margin-top: 5px;
+  margin-right: 16px;
+  font-size: 20px;
+  border: none;
+  cursor: pointer;
+  color: rgba(172, 172, 172, 1);
+}
+.search-container img {
+    margin-left: 80%;
+    position: absolute;
+    padding: 5px;
+    background-color: rgba(196, 164, 208, 1);
+    height: 40px;
+    border-radius: 0px 20px 20px 0px;
+}
+
+/* search close */
+
+/* pinned notes */
+.pinned-notes h4 {
+    color: white;
+    margin-bottom: 20px;
+    margin-left: 25px;
+}
+.container-card-pinned {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    column-gap: 10px;
+    width: 85%;
+    margin: 0 auto;
+}
+
+.pinned-card1 {
+    border-radius: 20px;
+    height: 150px;
+    background-color: rgba(38, 35, 56, 1);
+}
+.content-pinned-card1 {
+    margin-top: 100px;
+    border-bottom-left-radius: 20px;
+    border-bottom-right-radius: 20px;
+    width: 100%;
+    height: 40%;
+    background-image: linear-gradient(to bottom right,rgba(217, 217, 217, 1) 50%, rgba(153, 230, 240, 1));
+}
+.content-pinned-card1 h5{
+    padding: 10px;
+    font-size: 15px;
+}
+.content-pinned-card1 p{
+    margin-left: 10px;
+    font-size: 10px;
+}
+
+.pinned-card2 {
+    border-radius: 20px;
+    height: 100px;
+    background-image: linear-gradient(to bottom right,rgba(217, 217, 217, 1) 50%, rgba(174, 240, 153, 1));
+}
+.pinned-card2 h5 {
+    font-size: 15px;
+    text-align: center;
+    margin: 10px;
+}
+.pinned-card2 p {
+    font-size: 10px;
+    margin-right: 15px;
+    margin-left: 15px;
+    margin-bottom: 10px;
+}
+/* pinned notes close */
+
+ /* motes */
+ .notes h4 {
+    color: white;
+    margin-bottom: 20px;
+    margin-top:  30px;
+    margin-left: 25px;
+}
+.container-card-notes {
+    display: grid;
+    grid-template-columns: 2fr 2fr;
+    column-gap: 10px;
+    width: 85%;
+    margin: 0 auto;
+}
+.notes-card1 {
+    border-radius: 20px;
+    height: 150px;
+    background-image: linear-gradient(to bottom right,rgba(217, 217, 217, 1) 50%, rgba(164, 166, 208, 1));
+}
+.notes-card1 h5 {
+    font-size: 15px;
+    margin-top: 10px;
+    margin-left: 10px;
+}
+.notes-card1 p {
+    font-size: 10px;
+    padding: 10px;
+}
+
+.notes-card2 {
+    border-radius: 20px;
+    height: 100px;
+    background-image: linear-gradient(to bottom right,rgba(217, 217, 217, 1) 50%, rgba(164, 166, 208, 1));
+}
+.notes-card2 h5 {
+    font-size: 15px;
+    margin-top: 10px;
+    margin-left: 10px;
+}
+.notes-card2 p {
+    font-size: 10px;
+    margin-top: 10px;
+    margin-left: 10px;
+    margin-bottom: 10px;
+}
+
+.notes-card3 {
+    margin-top: 10px;
+    border-radius: 20px;
+    height: 75px;
+    background-image: linear-gradient(to bottom right,rgba(217, 217, 217, 1) 50%, rgba(174, 240, 153, 1));
+}
+.notes-card3 h5 {
+    font-size: 15px;
+    margin-top: 15px;
+    padding: 8px;
+}
+
+.container-notes-card4 {
+    margin-top: -40px;
+    border-radius: 20px;
+    height: 150px;
+    background-color: rgba(38, 35, 56, 1);
+}
+.notes-card4 {
+    margin-top: 100px;
+    border-bottom-left-radius: 20px;
+    border-bottom-right-radius: 20px;
+    width: 100%;
+    height: 40%;
+    background-image: linear-gradient(to bottom right,rgba(217, 217, 217, 1) 50%, rgba(153, 230, 240, 1));
+}
+.notes-card4 h5 {
+    padding: 10px;
+    font-size: 15px;
+}
+.notes-card4 p {
+    margin-left: 10px;
+    font-size: 10px;
+}
+/* close notes */
+
+.btn-add{
+    float: right;
+    margin-top: 50px;
+    margin-right: 30px;
+    border-radius: 100px;
+}
+.btn-add button{
+    width: 50px;
+    height: 50px;
+    border-radius: 100%;
+}
+.btn-add img{
+    width: 50px;
+    height: 50px;
+    border-radius: 100%;
+}
