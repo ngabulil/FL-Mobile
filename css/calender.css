@@ -151,6 +151,12 @@ body {
     border-top-right-radius: 46px;
   }
 
+  .task-list .container-task-list {
+    max-height: 80vh;
+    overflow-y: auto;
+    padding-bottom: 50px;
+  }
+
   .bottom-navbar {
     position: absolute;
     bottom: 0;

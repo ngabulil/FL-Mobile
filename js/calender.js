@@ -1,9 +1,10 @@
 const hamburgerMenu = document.querySelector(".hamburger-menu");
 const dropdownContent = document.querySelector(".dropdown-content");
-const btnInfoAll = document.querySelector(".btn-all");
+const btnInfoAllTask = document.querySelector(".btn-all");
 const btnInfoCalender = document.querySelector(".btn-calender");
 const calender = document.querySelector(".calendar");
 let isActive = false;
+let infoAllTaskActive = false;
 
 hamburgerMenu.addEventListener("click", () => {
   dropdownContent.classList.toggle("show");
@@ -20,20 +21,64 @@ const handleDropdown = () => {
   }
 };
 
-btnInfoAll.addEventListener("click", toggleActive);
+btnInfoAllTask.addEventListener("click", toggleActive);
 btnInfoCalender.addEventListener("click", toggleActive);
 
 function toggleActive(event) {
   const clickedButton = event.target;
 
-  btnInfoAll.classList.remove("active");
+  btnInfoAllTask.classList.remove("active");
   btnInfoCalender.classList.remove("active");
   clickedButton.classList.add("active");
 
-  if (clickedButton.classList.contains("btn-all")) {
-    calender.style.display = "none";
+  const infoAllTaskActive = clickedButton.classList.contains("btn-all");
+  calender.style.display = infoAllTaskActive ? "none" : "block";
+  setTaskListContent(infoAllTaskActive);
+}
+
+function setTaskListContent(infoAllTaskActive) {
+  const taskList = document.getElementById("task-list");
+  const taskData = localStorage.getItem("task");
+  const task = JSON.parse(taskData);
+  const taskName = task ? task.name : "";
+
+  let htmlContent = ""; // Variabel untuk menyimpan konten HTML
+
+  if (infoAllTaskActive && taskData) {
+    for (let i = 0; i < 8; i++) {
+      htmlContent += `
+        <div class="card-task">
+          <span></span>
+          <div class="box-info-task">
+            <div class="label-task">
+              <input type="checkbox" id="myCheckbox">
+              <p>${taskName}</p>
+            </div>
+          </div>
+        </div>`;
+    }
+    taskList.innerHTML = `
+      <p>ON PROGRESS</p>
+      <div class="container-task-list">
+         ${htmlContent}
+      </div>
+      `;
+  } else if (taskData) {
+    taskList.innerHTML = `
+      <div class="card-task">
+        <span></span>
+        <div class="box-info-task">
+          <div class="label-task">
+            <input type="checkbox" id="myCheckbox">
+            <p>${taskName}</p>
+          </div>
+        </div>
+      </div>`;
   } else {
-    calender.style.display = "block";
+    taskList.innerHTML = `
+      <div class="no-task" id="no-task">
+        <p>No task for <br />today</p>
+      </div>`;
   }
 }
 
@@ -129,7 +174,6 @@ const btnEvent = document.querySelector(".btn-event");
 
 btnAdd.addEventListener("click", function () {
   const computedStyle = getComputedStyle(popupContainer);
-
   if (computedStyle.display === "flex") {
     popupContainer.style.display = "none";
   } else {
@@ -154,36 +198,6 @@ popupContainer.addEventListener("click", function (event) {
 });
 
 // Manggil Task
-
 document.addEventListener("DOMContentLoaded", function () {
-  const taskList = document.getElementById("task-list");
-  const noTask = document.getElementById("no-task");
-
-  // Mendapatkan data task dari local storage
-  const taskData = localStorage.getItem("task");
-  if (taskData) {
-    const task = JSON.parse(taskData);
-    const taskName = task.name;
-    const reminder = task.reminder;
-
-    // Menampilkan task name dan reminder jika tersedia
-    const taskElement = document.createElement("div");
-    taskElement.innerHTML = `
-    <div class="card-task">
-      <span></span>
-      <div class="box-info-task">
-        <div class="label-task">
-          <input type="checkbox" id="myCheckbox">
-          <p>${taskName}</p>
-        </div>
-      </div>
-    <div/>`;
-    taskList.appendChild(taskElement);
-
-    // Mengubah tampilan elemen no-task menjadi tersembunyi
-    noTask.style.display = "none";
-  } else {
-    // Menampilkan pesan "No task for today" jika tidak ada task tersimpan
-    noTask.style.display = "block";
-  }
+  setTaskListContent();
 });
