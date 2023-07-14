@@ -44,14 +44,38 @@
             <button class="new" href="#">Add New Task</button>
           </div>
         </div>
+      </nav>
+      <!-- content calender -->
+      <div class="content">
+        <div class="calendar">
+          <div class="btn-info">
+            <button class="btn-all">All Task</button>
+            <button class="btn-calender">Calender</button>
+          </div>
+          <div class="calendar-header">
+            <button id="prev-btn">&lt;</button>
+            <div id="month-year"></div>
+            <button id="next-btn">&gt;</button>
+          </div>
+          <div class="calendar-grid">
+            <div class="weekdays">
+              <div class="weekday">Sun</div>
+              <div class="weekday">Mon</div>
+              <div class="weekday">Tue</div>
+              <div class="weekday">Wed</div>
+              <div class="weekday">Thu</div>
+              <div class="weekday">Fri</div>
+              <div class="weekday">Sat</div>
+            </div>
+            <div class="days"></div>
+          </div>
+        </div>
+        <div class="no-task">
+          <p>No task for <br />today</p>
+        </div>
+        <button class="btn-add">+</button>
       </div>
     </nav>
-    <!-- content calender -->
-    <div class="content">
-      <div> <input type="text" id="datepicker" placeholder="Pilih tanggal">
-      </div>
-    </div>
-    <!-- Bottom Bar -->
     <nav class="bottom-navbar">
       <a href="#" class="navbar-item active">
         <img src="../assets/Calendar.png" alt="Calendar" class="navbar-icon" />
