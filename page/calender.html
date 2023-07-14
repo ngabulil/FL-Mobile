@@ -1,66 +1,87 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="stylesheet" href="../css/calender.css" />
-    <title>Elisi - Calender</title>
-  </head>
-  <body>
-    <div>
-      <!-- Navbar -->
-      <nav class="navbar">
-        <div class="navbar-left">
-          <div class="hamburger-menu">
-            <div class="bar"></div>
-            <div class="bar"></div>
-            <div class="bar"></div>
-          </div>
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="stylesheet" href="../css/calender.css" />
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/flatpickr/dist/flatpickr.min.css">
+  <title>Elisi - Calender</title>
+</head>
+
+<body>
+  <div>
+    <!-- Navbar -->
+    <nav class="navbar">
+      <div class="navbar-left">
+        <div class="hamburger-menu">
+          <div class="bar"></div>
+          <div class="bar"></div>
+          <div class="bar"></div>
         </div>
-        <div class="navbar-right">
-          <button class="dropdown-btn">
-            <p>Workspace</p>
-            <img src="../assets/arrow.png" alt="" />
-          </button>
-          <!-- <div class="dropdown-content">
+      </div>
+      <div class="navbar-right">
+        <button onclick="handleDropdown()" class="dropdown-btn">
+          <p>Workspace</p>
+          <img src="../assets/arrow.png" alt="" />
+        </button>
+        <!-- <div class="dropdownTop">
+          <div class="dropTopCont">
+            <button>Workspace</button>
+            <button>Study</button>
+            <button>Personal</button>
+            <div class="addNew">
+              <button>Add New</button>
+              <p>+</p>
+            </div>
+          </div>
+        </div> -->
+        <div class="dropdown-content">
+          <div class="dropTopCont">
             <button class="workspace" href="#">Workspace</button>
             <button class="study" href="#">Study</button>
             <button class="personal" href="#">Personal</button>
             <button class="new" href="#">Add New Task</button>
-          </div> -->
+          </div>
         </div>
-      </nav>
-      <!-- content calender -->
-      <div class="content">
-        <div></div>
       </div>
-      <!-- Bottom Bar -->
-      <nav class="bottom-navbar">
-        <a href="#" class="navbar-item active">
-          <img
-            src="../assets/Calendar.png"
-            alt="Calendar"
-            class="navbar-icon"
-          />
-        </a>
-        <a href="#" class="navbar-item">
-          <img src="../assets/Note.png" alt="Note" class="navbar-icon" />
-        </a>
-        <a href="#" class="navbar-item">
-          <img src="../assets/Weight.png" alt="Weight" class="navbar-icon" />
-        </a>
-        <a href="#" class="navbar-item">
-          <img
-            src="../assets/EmptyWallet.png"
-            alt="Wallet"
-            class="navbar-icon"
-          />
-        </a>
-        <a href="#" class="navbar-item">
-          <img src="../assets/Book1.png" alt="Book" class="navbar-icon" />
-        </a>
-      </nav>
+    </nav>
+    <!-- content calender -->
+    <div class="content">
+      <div> <input type="text" id="datepicker" placeholder="Pilih tanggal">
+      </div>
     </div>
-    <script src="../js/calender.js"></script>
-  </body>
+    <!-- Bottom Bar -->
+    <nav class="bottom-navbar">
+      <a href="#" class="navbar-item active">
+        <img src="../assets/Calendar.png" alt="Calendar" class="navbar-icon" />
+      </a>
+      <a href="#" class="navbar-item">
+        <img src="../assets/Note.png" alt="Note" class="navbar-icon" />
+      </a>
+      <a href="#" class="navbar-item">
+        <img src="../assets/Weight.png" alt="Weight" class="navbar-icon" />
+      </a>
+      <a href="#" class="navbar-item">
+        <img src="../assets/EmptyWallet.png" alt="Wallet" class="navbar-icon" />
+      </a>
+      <a href="#" class="navbar-item">
+        <img src="../assets/Book1.png" alt="Book" class="navbar-icon" />
+      </a>
+    </nav>
+  </div>
+  <script src="../js/calender.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/flatpickr"></script>
+  <script>
+    // Menginisialisasi Flatpickr pada elemen input tanggal
+    flatpickr("#datepicker", {
+      dateFormat: "d-m-Y", // Format tanggal yang diinginkan
+      onClose: function(selectedDates, dateStr, instance) {
+        // Logika yang akan dijalankan saat pemilihan tanggal ditutup
+        console.log("Tanggal yang dipilih:", dateStr);
+      }
+    });
+  </script>
+</body>
+
 </html>
