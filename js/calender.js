@@ -45,17 +45,33 @@ function setTaskListContent(infoAllTaskActive) {
   let htmlContent = ""; // Variabel untuk menyimpan konten HTML
 
   if (infoAllTaskActive && taskData) {
-    for (let i = 0; i < 8; i++) {
-      htmlContent += `
-        <div class="card-task">
-          <span></span>
-          <div class="box-info-task">
-            <div class="label-task">
-              <input type="checkbox" id="myCheckbox">
-              <p>${taskName}</p>
-            </div>
+    for (let i = 0; i < 4; i++) {
+      htmlContent +=  `
+      <div class="card-task">
+        <span></span>
+        <div>
+        <div class="box-info-task">
+          <div class="label-task">
+            <input type="checkbox" id="myCheckbox">
+            <p>${taskName}</p>
           </div>
-        </div>`;
+        </div>
+        <div class="subtask">
+        <div class="box-info-task">
+          <div class="label-task">
+            <input type="checkbox" id="myCheckbox">
+            <p>Subtask</p>
+          </div>
+        </div>
+        <div class="box-info-task">
+          <div class="label-task">
+            <input type="checkbox" id="myCheckbox">
+            <p>Subtask</p>
+          </div>
+        </div>
+        </div>
+        </div>
+      </div>`;
     }
     taskList.innerHTML = `
       <p>ON PROGRESS</p>
@@ -67,11 +83,27 @@ function setTaskListContent(infoAllTaskActive) {
     taskList.innerHTML = `
       <div class="card-task">
         <span></span>
+        <div>
         <div class="box-info-task">
           <div class="label-task">
             <input type="checkbox" id="myCheckbox">
             <p>${taskName}</p>
           </div>
+        </div>
+        <div class="subtask">
+        <div class="box-info-task">
+          <div class="label-task">
+            <input type="checkbox" id="myCheckbox">
+            <p>Subtask</p>
+          </div>
+        </div>
+        <div class="box-info-task">
+          <div class="label-task">
+            <input type="checkbox" id="myCheckbox">
+            <p>Subtask</p>
+          </div>
+        </div>
+        </div>
         </div>
       </div>`;
   } else {
