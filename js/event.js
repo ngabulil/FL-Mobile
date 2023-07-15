@@ -13,11 +13,13 @@ let colorElm = ''
 let timeHour = '00'
 let timeMinute = '00'
 let timeRemind = ''
+let statusEvent = false
+const dataEvent = []
 console.log(timeHour, timeMinute)
 
-window.addEventListener('DOMContentLoaded', function() {
+window.addEventListener('DOMContentLoaded', function () {
   var ellipses = document.querySelectorAll('div[class^="ellipse-"]');
-  ellipses.forEach(function(ellipse) {
+  ellipses.forEach(function (ellipse) {
     ellipse.setAttribute('data-original-color', ellipse.style.backgroundColor);
   });
   console.log(ellipses)
@@ -35,7 +37,7 @@ function sendColor(element) {
   console.log(colorElm)
 
   // Mengembalikan warna asli ke elemen elipse lainnya
-  ellipses.forEach(function(ellipse) {
+  ellipses.forEach(function (ellipse) {
     if (ellipse !== element) {
       var originalColor = ellipse.getAttribute('data-original-color');
       console.log(originalColor)
@@ -47,8 +49,8 @@ function sendColor(element) {
   // element.style.backgroundColor = 'white';
 
   element.classList.add('clicked');
-  
-  ellipses.forEach(function(ellipse) {
+
+  ellipses.forEach(function (ellipse) {
     if (ellipse !== element) {
       // ...
       ellipse.classList.remove('clicked');
@@ -78,16 +80,26 @@ reminderButton.addEventListener('click', function () {
 
 saveBtn.addEventListener('click', function () {
   const eventName = eventNameInput.value;
-  const reminder = localStorage.getItem('reminder');
-
-  // Simpan eventName dan reminder ke local storage
-  localStorage.setItem('event', JSON.stringify({
+  const eventObj = {
     name: eventName,
     reminder: timeRemind,
     color: colorElm,
-  }));
+    status: statusEvent,
+  }
 
-  window.location.href = '../page/calender.html'; // Redirect ke halaman calender.html setelah menyimpan event
+  dataEvent.push(eventObj)
+
+  localStorage.setItem('event', JSON.stringify(dataEvent))
+
+  // Simpan eventName dan reminder ke local storage
+  // localStorage.setItem('event', JSON.stringify({
+  //   name: eventName,
+  //   reminder: timeRemind,
+  //   color: colorElm,
+  //   status: statusEvent,
+  // }));
+
+  window.location.href = '../page/calender.html';
 });
 
 reminderModal.addEventListener('click', function () {
@@ -99,7 +111,7 @@ timeInput.addEventListener('click', function (event) {
   reminderModal.style.display = 'block';
 });
 
-timeButton.addEventListener('click', function(event) {
+timeButton.addEventListener('click', function (event) {
   event.stopPropagation()
   timeRemind = `${timeHour} : ${timeMinute}`
   reminderButton.innerHTML = timeRemind
@@ -128,7 +140,7 @@ timeButton.addEventListener('click', function(event) {
 //   input.dispatchEvent(new Event('input'));
 // }
 
-hourInput.addEventListener('change', function(e) {
+hourInput.addEventListener('change', function (e) {
   timeHour = e.target.value
   if (timeHour == '' || timeHour == '0' || timeHour > 23) {
     timeHour = '00'
@@ -137,7 +149,7 @@ hourInput.addEventListener('change', function(e) {
   console.log(timeHour)
 })
 
-minuteInput.addEventListener('change', function(e) {
+minuteInput.addEventListener('change', function (e) {
   timeMinute = e.target.value
   if (timeMinute == '' || timeMinute == '0' || timeMinute > 59) {
     timeMinute = '00'
@@ -148,4 +160,3 @@ minuteInput.addEventListener('change', function(e) {
 
 // hourInput.addEventListener('wheel', handleScroll, { passive: false });
 // minuteInput.addEventListener('wheel', handleScroll, { passive: false });
-
