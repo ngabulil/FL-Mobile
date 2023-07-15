@@ -47,8 +47,7 @@ function setTaskListContent(infoAllTaskActive) {
   let htmlContentTask = "";
   let htmlContentEvent = "";
 
-  for (let i = 0; i < events.length; i++) {
-    const event = events[i];
+  events?.forEach((event) => {
     htmlContentEvent += `
       <div>
         <h3>Name: ${event.name}</h3>
@@ -56,7 +55,7 @@ function setTaskListContent(infoAllTaskActive) {
         <p>Color: ${event.color}</p>
         <p>Status: ${event.status}</p>
       </div>`;
-  }
+  });
 
   for (let i = 0; i < 8; i++) {
     htmlContentTask += `
@@ -82,38 +81,78 @@ function setTaskListContent(infoAllTaskActive) {
   }
 
   taskList.innerHTML = `
-    ${infoAllTaskActive && getEventData ? `
+    ${
+      infoAllTaskActive && getEventData
+        ? `
       <p class="list-name">ON PROGRESS</p>
       <div class="container-task-list">
         ${htmlContentEvent}
-        ${htmlContentTask}
-      </div>` :
-    getTaskData ? `
-      ${htmlContentEvent}
-      <div class="card-task">
-        <span></span>
-        <div class="box-info-task">
-          <div class="label-task">
-            <input type="checkbox" id="myCheckbox">
-            <p class="task-name">${task?.name}</p>
-          </div>
-          <div class="subtask">
+        ${
+          getTaskData
+            ? htmlContentTask
+            : `<div class="no-task" id="no-task">
+            <p>No task for <br />today</p>
+          </div>`
+        }
+      </div>`
+        : getTaskData
+        ? getEventData
+          ? `
+        ${htmlContentEvent}
+        <div class="card-task">
+          <span></span>
+          <div class="box-info-task">
             <div class="label-task">
               <input type="checkbox" id="myCheckbox">
-              <p class="subtask-name">Subtask</p>
+              <p class="task-name">${task?.name}</p>
             </div>
-            <div class="label-task">
-              <input type="checkbox" id="myCheckbox">
-              <p class="subtask-name">Subtask</p>
+            <div class="subtask">
+              <div class="label-task">
+                <input type="checkbox" id="myCheckbox">
+                <p class="subtask-name">Subtask</p>
+              </div>
+              <div class="label-task">
+                <input type="checkbox" id="myCheckbox">
+                <p class="subtask-name">Subtask</p>
+              </div>
             </div>
           </div>
         </div>
-      </div>` :
-    `<div class="no-task" id="no-task">
-      <p>No task for <br />today</p>
-    </div>`}`;
+        `
+          : `
+          <div class="card-task">
+            <span></span>
+            <div class="box-info-task">
+              <div class="label-task">
+                <input type="checkbox" id="myCheckbox">
+                <p class="task-name">${task?.name}</p>
+              </div>
+              <div class="subtask">
+                <div class="label-task">
+                  <input type="checkbox" id="myCheckbox">
+                  <p class="subtask-name">Subtask</p>
+                </div>
+                <div class="label-task">
+                  <input type="checkbox" id="myCheckbox">
+                  <p class="subtask-name">Subtask</p>
+                </div>
+              </div>
+            </div>
+          </div>`
+        : getEventData
+        ? `
+        ${htmlContentEvent}
+        <div class="no-task" id="no-task">
+          <p>No task for <br />today</p>
+        </div>
+        `
+        : `
+            <div class="no-task" id="no-task">
+              <p>No task for <br />today</p>
+            </div>
+          `
+    }`;
 }
-
 
 const monthYearElement = document.getElementById("month-year");
 const prevButton = document.getElementById("prev-btn");
