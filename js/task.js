@@ -43,3 +43,17 @@ saveBtn.addEventListener('click', function() {
   
   window.location.href = '../page/calender.html'; // Redirect ke halaman calender.html setelah menyimpan task
 });
+
+// Fungsi Arrow Left
+const arrowLeftButton = document.querySelector('.btn-top button:first-child');
+
+arrowLeftButton.addEventListener('click', function() {
+  window.location.href = '../page/calender.html';
+});
+
+const repeatButton = document.getElementById('repeat-btn');
+
+repeatButton.addEventListener('click', function() {
+  window.location.href = '../page/repeat.html'; // Mengarahkan ke repeat.html
+});
+

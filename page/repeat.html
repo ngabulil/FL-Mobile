@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="../css/repeat.css" />
+    <title>Elisi</title>
+  </head>
+  <body>
+    <div class="container">
+      <div class="btn-top">
+        <button id="arrow-left-btn">
+          <img src="../assets/arrowleft.png" alt="" />
+        </button>
+      </div>
+      <div class="menu-repeat">
+        <button class="btn-active">No Repeat</button>
+        <button class="btn-repeat">Everyday</button>
+        <button class="btn-repeat">Weekly</button>
+        <button class="btn-repeat">Monthly</button>
+        <button class="btn-repeat">Yearly</button>
+      </div>
+      <p class="duration">Duration</p>
+      <div class="menu-repeat">
+        <button class="btn-active">Forever</button>
+        <button class="btn-repeat">Specific number of times</button>
+        <button class="btn-repeat">Until certain date</button>
+      </div>
+      <button id="save-btn" class="btn-save">Save</button>
+    </div>
+    <script>
+      // Tombol "arrow left"
+      const arrowLeftButton = document.getElementById("arrow-left-btn");
+
+      arrowLeftButton.addEventListener("click", function () {
+        window.location.href = "task.html"; // Mengarahkan kembali ke task.html
+      });
+
+      // Tombol "save"
+      const saveButton = document.getElementById("save-btn");
+
+      saveButton.addEventListener("click", function () {
+        window.location.href = "calender.html"; // Mengarahkan ke calender.html
+      });
+    </script>
+  </body>
+</html>

@@ -1,0 +1,97 @@
+@import url('https://fonts.googleapis.com/css2?family=Josefin+Sans:wght@400;500;600;700&display=swap');
+
+* {
+  scroll-behavior: smooth;
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+  font-family: 'Josefin Sans', sans-serif;
+}
+
+:root {
+  --primary-color: #93CB82;
+  --background-color: #1B272F;
+  --secondary-color: #C4A4D0;
+  --bg-secondary-color: #304552;
+}
+
+body {
+    background-color: var(--background-color);
+    min-height: 100vh;
+    font-family: Arial, sans-serif;
+  }
+
+  @media only screen and (min-width: 360px) {
+    .container {
+        padding: 19px 14px;
+    }
+
+    .btn-top {
+      display: flex;
+      margin-bottom: 23px;
+      justify-content: space-between;
+    }
+  
+    .btn-top button {
+      background-color: transparent;
+      color: white;
+      border: none;
+    outline: none;
+    }
+
+    .menu-repeat {
+        display: flex;
+        flex-direction: column;
+        gap: 16px;
+    }
+
+    .btn-repeat {
+        color: #ffffff;
+        font-weight: 500;
+        border: none;
+        background-color: #304552;
+        margin-bottom: 20px;
+        width: 319px;
+        height: 44px;
+        border-radius: 40px;
+        margin: 0 20px;
+        text-align: left;
+        padding: 0 16px;
+        font-weight: 700;
+        font-size: 13px;
+    }
+
+    .btn-active {
+        color: #1B272F;
+        font-weight: 500;
+        border: none;
+        background-color: #C4A4D0;
+        margin-bottom: 20px;
+        width: 319px;
+        height: 44px;
+        border-radius: 40px;
+        margin: 0 20px;
+        text-align: left;
+        padding: 0 16px;
+        font-weight: 700;
+        font-size: 13px;
+    }
+    .btn-save {
+        position: fixed;
+        background-color: var(--primary-color);
+        width: 123px;
+        height: 37px;
+        color: #1B272F;
+        border-radius: 44px;
+        font-weight: 700;
+        margin: 40px 120px;
+    }
+
+    .duration {
+        font-size: 13px;
+        color: #E3E3E3;
+        line-height: 13px;
+        margin: 15px 26px;
+        text-transform: uppercase;
+    }
+  }
