@@ -38,81 +38,82 @@ function toggleActive(event) {
 
 function setTaskListContent(infoAllTaskActive) {
   const taskList = document.getElementById("task-list");
-  const taskData = localStorage.getItem("task");
-  const task = JSON.parse(taskData);
-  const taskName = task ? task.name : "";
+  const eventList = document.getElementById("event-list");
+  const getTaskData = localStorage.getItem("task");
+  const getEventData = localStorage.getItem("event");
+  const events = JSON.parse(getEventData);
+  const task = JSON.parse(getTaskData);
 
-  let htmlContent = ""; // Variabel untuk menyimpan konten HTML
+  let htmlContentTask = "";
+  let htmlContentEvent = "";
 
-  if (infoAllTaskActive && taskData) {
-    for (let i = 0; i < 4; i++) {
-      htmlContent +=  `
-      <div class="card-task">
-        <span></span>
-        <div>
-        <div class="box-info-task">
-          <div class="label-task">
-            <input type="checkbox" id="myCheckbox">
-            <p>${taskName}</p>
-          </div>
-        </div>
-        <div class="subtask">
-        <div class="box-info-task">
-          <div class="label-task">
-            <input type="checkbox" id="myCheckbox">
-            <p>Subtask</p>
-          </div>
-        </div>
-        <div class="box-info-task">
-          <div class="label-task">
-            <input type="checkbox" id="myCheckbox">
-            <p>Subtask</p>
-          </div>
-        </div>
-        </div>
-        </div>
-      </div>`;
-    }
-    taskList.innerHTML = `
-      <p>ON PROGRESS</p>
-      <div class="container-task-list">
-         ${htmlContent}
-      </div>
-      `;
-  } else if (taskData) {
-    taskList.innerHTML = `
-      <div class="card-task">
-        <span></span>
-        <div>
-        <div class="box-info-task">
-          <div class="label-task">
-            <input type="checkbox" id="myCheckbox">
-            <p>${taskName}</p>
-          </div>
-        </div>
-        <div class="subtask">
-        <div class="box-info-task">
-          <div class="label-task">
-            <input type="checkbox" id="myCheckbox">
-            <p>Subtask</p>
-          </div>
-        </div>
-        <div class="box-info-task">
-          <div class="label-task">
-            <input type="checkbox" id="myCheckbox">
-            <p>Subtask</p>
-          </div>
-        </div>
-        </div>
-        </div>
-      </div>`;
-  } else {
-    taskList.innerHTML = `
-      <div class="no-task" id="no-task">
-        <p>No task for <br />today</p>
+  for (let i = 0; i < events.length; i++) {
+    const event = events[i];
+    htmlContentEvent += `
+      <div>
+        <h3>Name: ${event.name}</h3>
+        <p>Reminder: ${event.reminder}</p>
+        <p>Color: ${event.color}</p>
+        <p>Status: ${event.status}</p>
       </div>`;
   }
+
+  for (let i = 0; i < 8; i++) {
+    htmlContentTask += `
+      <div class="card-task">
+        <span></span>
+        <div class="box-info-task">
+          <div class="label-task">
+            <input type="checkbox" id="myCheckbox">
+            <p class="task-name">${task?.name}</p>
+          </div>
+          <div class="subtask">
+            <div class="label-task">
+              <input type="checkbox" id="myCheckbox">
+              <p class="subtask-name">Subtask</p>
+            </div>
+            <div class="label-task">
+              <input type="checkbox" id="myCheckbox">
+              <p class="subtask-name">Subtask</p>
+            </div>
+          </div>
+        </div>
+      </div>`;
+  }
+
+  taskList.innerHTML = `
+    ${infoAllTaskActive && getEventData ? `
+      <p class="list-name">ON PROGRESS</p>
+      <div class="container-task-list">
+        ${htmlContentEvent}
+        ${htmlContentTask}
+      </div>` :
+    getTaskData ? `
+      ${htmlContentEvent}
+      <div class="card-task">
+        <span></span>
+        <div class="box-info-task">
+          <div class="label-task">
+            <input type="checkbox" id="myCheckbox">
+            <p class="task-name">${task?.name}</p>
+          </div>
+          <div class="subtask">
+            <div class="label-task">
+              <input type="checkbox" id="myCheckbox">
+              <p class="subtask-name">Subtask</p>
+            </div>
+            <div class="label-task">
+              <input type="checkbox" id="myCheckbox">
+              <p class="subtask-name">Subtask</p>
+            </div>
+          </div>
+        </div>
+      </div>` :
+    `<div class="no-task" id="no-task">
+      <p>No task for <br />today</p>
+    </div>`}`;
 }
+
 
 const monthYearElement = document.getElementById("month-year");
 const prevButton = document.getElementById("prev-btn");
@@ -218,9 +219,9 @@ btnTask.addEventListener("click", function () {
   popupContainer.style.display = "none";
 });
 
-btnEvent.addEventListener('click', function() {
-  window.location.href = '../page/event.html'; // Ganti "event-page.html" dengan URL halaman acara Anda
-  popupContainer.style.display = 'none';
+btnEvent.addEventListener("click", function () {
+  window.location.href = "../page/event.html"; // Ganti "event-page.html" dengan URL halaman acara Anda
+  popupContainer.style.display = "none";
 });
 
 popupContainer.addEventListener("click", function (event) {

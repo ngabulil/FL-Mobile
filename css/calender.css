@@ -154,7 +154,10 @@ body {
   .task-list .container-task-list {
     max-height: 80vh;
     overflow-y: auto;
-    padding-bottom: 50px;
+    display: flex;
+    flex-direction: column;
+    gap: 19px;
+    padding-bottom: 80px;
   }
 
   .bottom-navbar {
@@ -217,7 +220,7 @@ body {
     width: 327px;
     height: 106px;
     border-radius: 27px;
-    margin: 28px auto;
+    margin: 0 auto;
   }
 
   .card-task span {
@@ -226,6 +229,28 @@ body {
     background-color: #EACB8E;
     height: 100%;
     width: 25px;
+  }
+  
+  .list-name {
+    font-size: 11px;
+    font-weight: 400;
+    line-height: 13.86px;
+    color: #FFF;
+    margin-left: 22px;
+    margin-bottom: 6px;
+  }
+
+  .task-name{
+    font-size: 12px;
+    font-weight: 700;
+    line-height: 14.88px;
+    color: #656565;
+  }
+  .subtask-name{
+    font-size: 11px;
+    font-weight: 500;
+    line-height: 13.64px;
+    color: #656565;
   }
 
   .box-info-task {
@@ -236,12 +261,14 @@ body {
     padding: 12px;
   }
 
-  .box-info-task div {
+  .box-info-task .label-task {
     display: flex;
     align-items: center;
     gap: 11px;
     margin-bottom: -3px;
   }
+
+
 
   input[type="checkbox"] {
     border-radius: 4px;
@@ -255,8 +282,12 @@ body {
   }
 
   .subtask {
-    flex-direction: row;
-    margin: -10px 20px;
+    flex-direction: column;
+    /* flex-direction: row; */
+    display: flex;
+    gap: 10px;
+    margin: 13px;
+    /* margin: -10px 20px; */
     font-size: 11px;
   }
 
@@ -306,6 +337,7 @@ body {
   border-radius: 12px;
   padding: 0 20px;
   color: #c5c5c5;
+  margin-bottom: 43px;
   transition: transform 0.5s ease-out, opacity 0.5s ease-out;
 }
 
