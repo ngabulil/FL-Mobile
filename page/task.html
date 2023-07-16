@@ -49,20 +49,14 @@
           </div>
           <button id="reminder-btn" class="btn-add">+</button>
           <div id="reminder-modal" class="modal">
-            <div class="modal-content">
-              <div class="modal-header">
-                <h2>Select Time</h2>
-                <span class="close">&times;</span>
-              </div>
-              <div class="modal-body">
-                <input type="time" id="selected-time" />
-              </div>
-              <div class="modal-footer">
-                <button id="set-reminder-btn" class="btn-reminder">
-                  Set Reminder
-                </button>
+            <div id="time-input" class="time-input">
+              <div class="time-content">
+                <input id="hour-input" type="number" min="0" max="23" step="1" value="00">
+                <span>:</span>
+                <input id="minute-input" type="number" min="0" max="59" step="1" value="00">
               </div>
             </div>
+            <div class="btn-time"><button>Submit</button></div>
           </div>
         </div>
         <div class="task-detail">

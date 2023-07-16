@@ -36,7 +36,7 @@ gsap.fromTo(
                           opacity: 0,
                           scale: 0.3
                         }, {
-                            y: "-5%",
+                            y: "10%",
                           opacity: 1,
                           scale: 1,
                           duration: 0.7,

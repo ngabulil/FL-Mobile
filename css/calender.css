@@ -214,6 +214,81 @@ body {
     top: 20px;
   }
 
+  .icon-flag-event {
+    height: 20px;
+    width: 20px;
+  }
+
+  .card-event {
+    display: flex;
+    background-color: #FFFF;
+    width: 327px;
+    height: 43px;
+    border-radius: 27px;
+    margin: 0 auto 21px auto;
+  }
+
+  .card-event span {
+    border-top-left-radius: 27px;
+    border-bottom-left-radius: 27px;
+    background-color: #85E2FF;
+    height: 100%;
+    width: 25px;
+  }
+
+  .box-info-event {
+    position: relative;
+    display: flex;
+    align-items: center;
+    padding: 0 8px;
+    width: 100%;
+  }
+
+  .box-info-event1 {
+    position: relative;
+    display: flex;
+    align-items: center;
+    padding: 0 8px;
+    width: 100%;
+    margin: 20px 0;
+  }
+
+  .box-info-event h3 {
+    font-size: 12px;
+    font-weight: 600;
+    line-height: 14.88px;
+    color: #727272;
+  }
+
+  .box-info-event1 h3 {
+    font-size: 12px;
+    font-weight: 600;
+    line-height: 14.88px;
+    color: #727272;
+  }
+
+  .box-info-event button {
+    position: absolute;
+    right: 10px;
+    border: 2px solid #909090;
+    border-radius: 12px;
+    height: 21px;
+    width: 49px;
+    font-size: 12px;
+    color: #727272;
+  }
+
+  .box-info-event1 button {
+    position: absolute;
+    right: 10px;
+    border: 2px solid #909090;
+    border-radius: 12px;
+    height: 21px;
+    width: 49px;
+    font-size: 12px;
+    color: #727272;
+  }
+
   .card-task {
     display: flex;
     background-color: #FFFF;
@@ -230,7 +305,7 @@ body {
     height: 100%;
     width: 25px;
   }
-  
+
   .list-name {
     font-size: 11px;
     font-weight: 400;
@@ -240,13 +315,14 @@ body {
     margin-bottom: 6px;
   }
 
-  .task-name{
+  .task-name {
     font-size: 12px;
     font-weight: 700;
     line-height: 14.88px;
     color: #656565;
   }
-  .subtask-name{
+
+  .subtask-name {
     font-size: 11px;
     font-weight: 500;
     line-height: 13.64px;
@@ -268,7 +344,9 @@ body {
     margin-bottom: -3px;
   }
 
-
+  .label-event {
+    padding-top: 5px;
+  }
 
   input[type="checkbox"] {
     border-radius: 4px;
@@ -383,7 +461,7 @@ body {
 .day {
   text-align: center;
   padding: 8px;
-  border-radius: 6px;
+  border-radius: 50%;
   cursor: pointer;
 }
 
@@ -443,6 +521,5 @@ body {
   padding: 4px;
   font-weight: 700;
   cursor: pointer;
- 
-}
 
+}

@@ -21,6 +21,7 @@ body {
 }
 
 button {
+  cursor: pointer;
   border: none;
   outline: none;
 }
@@ -175,7 +176,7 @@ button {
   }
 
   .btn-save {
-    margin: 28px auto;
+    margin: 90px auto;
     width: 123px;
     height: 37px;
     background-color: #93cb82;

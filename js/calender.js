@@ -46,15 +46,30 @@ function setTaskListContent(infoAllTaskActive) {
 
   let htmlContentTask = "";
   let htmlContentEvent = "";
+  let htmlContEvnt = ''
 
   events?.forEach((event) => {
     htmlContentEvent += `
-      <div>
-        <h3>Name: ${event.name}</h3>
-        <p>Reminder: ${event.reminder}</p>
-        <p>Color: ${event.color}</p>
-        <p>Status: ${event.status}</p>
+      <div class="card-event">
+        <span style="background-color: ${event.color ? event?.color : "#85E2FF" }"></span>
+        <div  class="box-info-event">
+          <img class="icon-flag-event" src="../assets/flag.png" alt="" />
+          <div class="label-event">
+            <h3>${event?.name}</h3>
+          </div>
+          <button>Done</button>
+        </div>
       </div>`;
+      htmlContEvnt += `<div class="card-event">
+      <span style="background-color: ${event.color ? event?.color : "#85E2FF" }"></span>
+      <div  class="box-info-event1">
+        <img class="icon-flag-event" src="../assets/flag.png" alt="" />
+        <div class="label-event">
+          <h3>${event?.name}</h3>
+        </div>
+        <button>Done</button>
+      </div>
+    </div>`;
   });
 
   for (let i = 0; i < 8; i++) {
@@ -86,7 +101,7 @@ function setTaskListContent(infoAllTaskActive) {
         ? `
       <p class="list-name">ON PROGRESS</p>
       <div class="container-task-list">
-        ${htmlContentEvent}
+        ${htmlContEvnt}
         ${
           getTaskData
             ? htmlContentTask

@@ -21,6 +21,7 @@ body {
 }
 
 button{
+  cursor: pointer;
     border: none;
     outline: none;
 }
@@ -87,6 +88,7 @@ button{
       display: flex;
       align-items: center;
       gap: 24px;
+      /* margin-bottom: 18px; */
     }
   
     .icon-task {
@@ -132,7 +134,7 @@ button{
     }
   
     .btn-save {
-      margin: 28px auto;
+      margin: 90px auto;
       width: 123px;
       height: 37px;
       background-color: #93cb82;
@@ -192,6 +194,63 @@ button{
         padding: 6px 10px;
         font-size: 12px;
         cursor: pointer;
+      }
+
+      .time-input {
+        z-index: 3;
+        position: absolute;
+        top: 40%;
+        /* left: 30%; */
+        display: flex;
+        width: 100%;
+        /* padding: 20px; */
+        justify-content: center;
+      }
+    
+      .time-content {
+        padding: 20px 40px;
+        border-radius: 20px;
+        background-color: var(--bg-secondary-color);
+        z-index: 3;
+      }
+    
+      .time-content input {
+        z-index: 3;
+        color: white;
+        background-color: transparent;
+        border: navajowhite;
+        text-align: center;
+        margin: 0;
+        outline: none;
+        font-size: 60px;
+        touch-action: manipulation;
+      }
+    
+      .time-content span {
+        color: white;
+        font-size: 60px;
+      }
+    
+      .time-content input[type="number"]::-webkit-inner-spin-button,
+      .time-content input[type="number"]::-webkit-outer-spin-button {
+        -webkit-appearance: none;
+        margin: 0;
+      }
+    
+      .btn-time {
+        z-index: 3;
+        position: absolute;
+        top: 55%;
+        /* left: 30%; */
+        display: flex;
+        width: 100%;
+        /* padding: 20px; */
+        justify-content: center;
+      }
+    
+      .btn-time button {
+        padding: 10px 20px;
+        border-radius: 20px;
       }
       
   }

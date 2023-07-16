@@ -160,3 +160,9 @@ minuteInput.addEventListener('change', function (e) {
 
 // hourInput.addEventListener('wheel', handleScroll, { passive: false });
 // minuteInput.addEventListener('wheel', handleScroll, { passive: false });
+
+const arrowLeftButton = document.querySelector('.btn-top button:first-child');
+
+arrowLeftButton.addEventListener('click', function () {
+  window.location.href = '../page/calender.html';
+});
