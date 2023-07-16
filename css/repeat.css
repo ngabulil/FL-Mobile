@@ -23,11 +23,12 @@ body {
 
   @media only screen and (min-width: 360px) {
     .container {
-        padding: 19px 14px;
+        padding: 20px 0;
     }
 
     .btn-top {
       display: flex;
+      margin: 0 25px;
       margin-bottom: 23px;
       justify-content: space-between;
     }
@@ -77,6 +78,7 @@ body {
         font-size: 13px;
     }
     .btn-save {
+      border: none;
         position: fixed;
         background-color: var(--primary-color);
         width: 123px;
